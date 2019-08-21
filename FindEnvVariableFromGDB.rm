@@ -1,3 +1,6 @@
+(gdb) show env
+
+
 Find env variable address from gdb 
 
  x/s *((char **)environ+0)
