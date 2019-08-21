@@ -3,6 +3,8 @@
 Take note that the shellcode used is slightly different with the previously created however the functionality is same. 
 The constructed buffer that contains the shellcode will be stored in the “EGG” environment variable. */
 
+/* $ gcc -fno-stack-protector -z execstack eggcode.c -o eggcode */
+
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>  /* setenv getenv */
