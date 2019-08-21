@@ -3,10 +3,10 @@
 
 Find env variable address from gdb 
 
- x/s *((char **)environ+0)
- x/s *((char **)environ+1)
- ..
- x/s *((char **)environ+50)
+ (gdb) x/s *((char **)environ+0)
+ (gdb) x/s *((char **)environ+1)
+ (gdb)..
+ (gdb)x/s *((char **)environ+50)
  
  
  
