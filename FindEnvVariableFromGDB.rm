@@ -1,0 +1,21 @@
+Find env variable address from gdb 
+
+ x/s *((char **)environ+0)
+ x/s *((char **)environ+1)
+ ..
+ x/s *((char **)environ+50)
+ 
+ 
+ 
+Environment variables are 16 bytes from the base pointer (%ebp).
+Put a break point in the main function and do this,
+(gdb) x/wx $ebp+0x10 
+0xffffd3f8: 0xffffd48c
+(gdb) x/wx 0xffffd48c     –  **env
+0xffffd48c: 0xffffd67e
+(gdb) x/s 0xffffd67e      –  env[0]
+0xffffd67e: "XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0"
+(gdb) x/wx 0xffffd48c+4
+0xffffd490: 0xffffd6b2
+(gdb) x/s 0xffffd6b2    –  env[1]
+0xffffd6b2: "XDG_CONFIG_DIRS=/etc/xdg/lubuntu:/etc/xdg/xdg-Lubuntu:/usr/share/upstart/xdg:/etc/xdg"
